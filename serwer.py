@@ -16,7 +16,19 @@ def registration():
     # TODO checking if the username exsist The query is ""ready""
     hashed_password = hashing.hash_password(password)
     database_queri.save_username(username, hashed_password)
-    return render_template('main_page.html')
+    return render_template('login_registration_page.html')
+
+
+@app.route("/login", methods=['POST', 'GET'])
+def login():
+    username = request.form['username']
+    password = request.form['password']
+    hashed_password = database_queri.get_password(username)
+    matching = hashing.verify_password(password, hashed_password['password'])
+    if matching:
+        return render_template('main_page.html')
+    else :
+        return render_template('login_registration_page.html')
 
 
 if __name__ == "__main__":
