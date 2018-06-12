@@ -1,18 +1,23 @@
 from flask import Flask, render_template, request
 app = Flask (__name__)
+import database_queri
+import hashing
 
 @app.route('/')
 def main_page():
     # TODO here you have to check if you have a session
-    return render_template('mainPage.html')
+    return render_template('login_registration_page.html')
+
 
 @app.route("/registration", methods=['POST', 'GET'])
 def registration():
     username = request.form['username']
-    password = request.fomr['userPassword']
+    password = request.form['userPassword']
+    # TODO checking if the username exsist The query is ""ready""
+    hashed_password = hashing.hash_password(password)
+    database_queri.save_username(username, hashed_password)
+    return render_template('main_page.html')
 
-    # TODO finich our registration, and check your sql conection
-    return render_template('mainPage.html')
 
 if __name__ == "__main__":
     app.run(debug=True,
