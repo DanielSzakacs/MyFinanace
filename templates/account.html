@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="info-table border border-info rounded input-center">
+    <p>
+        <img class="account-user-pic rounded-circle text-center" src="{{ url_for('static', filename='logo/no-user-face.jpg')}}" alt="User face">
+        <br>
+        <h6 class="text-center">Username: {{ session['username'] }}</h6><br>
+        <h6> Registration time: {{ time }}</h6>
+        <h6> Country: Hungary</h6>
+        <h6> Email: </h6>
+
+    </p>
+
+
+    <!-- Ide kell tenni a tablakat -->
+    <!--
+    <p class="text-center">Your Username</p>
+    <div class="row input-group ">
+        <input class="info-input form-control rounded" type="text" placeholder="{{ session['username'] }}">
+        <button class="btn btn-primary">Submit</button>
+    </div>
+    -->
+</div>
+{% endblock %}

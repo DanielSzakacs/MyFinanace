@@ -12,6 +12,28 @@
 
 </head>
 <body>
+{% if session['username'] %}
+    <div id="header-wrapper">
+        <header class="clearfix">
+            <img id="logo" src="{{url_for('static', filename='logo/mfg-logo.png') }}" alt="Myfinance">
+            <a href="{{ url_for('account')}}">
+                <button class="header-button btn" >Account</button>
+            </a>
+            <a href="{{url_for('finance')}}">
+                <button class="header-button btn " >Finance</button>
+            </a>
+            <a href="">
+                <button class="header-button btn " >Grafic</button>
+            </a>
+            <a href="">
+                <button class="header-button btn " >Calendar</button>
+            </a>
+            <a href="{{ url_for('logout')}}">
+                <button class="logout-button btn btn-danger" >Logout</button>
+            </a>
+        </header>
+    </div>
+{% endif %}
 {% block content %} {% endblock %}
 </body>
 </html>

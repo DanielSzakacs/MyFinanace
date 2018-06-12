@@ -20,3 +20,21 @@
     float: right;
     margin: 15px 15px 0px 0px;
 }
+
+.info-table {
+    margin: 30px 300px 30px 300px;
+}
+
+.info-input {
+    margin: 10px 100px 10px 100px;
+}
+
+.account-user-pic {
+    width: 130px;
+    padding: 5px;
+    margin: 10px 50px 10px 350px;
+}
+
+.calculate-button {
+    margin: 0px 20px 10px 500px;
+}

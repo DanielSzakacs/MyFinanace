@@ -1,0 +1,24 @@
+{% extends 'layout.html'%}
+{% block content %}
+
+
+<div class="info-table border border-info rounded">
+    <!-- Ide kell tenni a tablakat -->
+    <p class="text-center">Finance</p>
+    <div class="row input-group ">
+        <form method="post" action="calculate_finance">
+            <input name="income" class="info-input form-control rounded" type="text" placeholder="Income/month">
+            <input name="house" class="info-input form-control rounded" type="text" placeholder="House">
+            <input name="food" class="info-input form-control rounded" type="text" placeholder="Food">
+            <input name="cloth" type="text" class="info-input form-control" placeholder="Cloth">
+            <input name="somthing" type="text" class="info-input form-control" placeholder="Somthing more">
+            <select name="year" class="info-input form-control">
+                {% for year in range(2018, 2100)%}
+                <option value="">{{ year }}</option>
+                {% endfor %}
+            </select>
+            <button class="calculate-button btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
