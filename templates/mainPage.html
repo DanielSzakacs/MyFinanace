@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h3 class="app-name"><p class="text-center">MyFinance</p></h3>
+<div class="registration-box">
+    <br>
+    <form  method="post" action="registration" class="text-center">
+        <p class="small grayed">Registraion</p>
+        <input type="text" name="username" placeholder="Your username">
+        <input type="password" name="userPassword" placeholder="Your code">
+        <button class="btn btn-danger" type="submit">Submit</button>
+    </form>
+    <br><br>
+    <form method="post" action="" class="text-center">
+        <p class="small grayed">Login</p>
+        <input type="text">
+        <input type="password">
+        <button class="btn btn-danger" type="submit">Submit</button>
+    </form>
+</div>
+
+{% endblock %}

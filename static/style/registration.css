@@ -1,0 +1,18 @@
+.registration-box{
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    width:30em;
+    height:18em;
+    margin-top: -9em;
+    margin-left: -15em;
+    -webkit-box-shadow: 10px 10px 34px -1px rgba(0,0,0,0.24);
+    -moz-box-shadow: 10px 10px 34px -1px rgba(0,0,0,0.24);
+    box-shadow: 10px 10px 34px -1px rgba(0,0,0,0.24);
+    border-radius: 25px;
+}
+.app-name{
+    width: 50em;
+    height: 30em;
+    margin: 50px 0 0 0;
+}
