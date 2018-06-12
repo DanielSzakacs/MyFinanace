@@ -1,0 +1,22 @@
+#logo {
+    float: left;
+    width: 230px;
+    padding: 10px;
+}
+
+#header-wrapper {
+    background-color: lightblue;
+    margin: 10px 0px 0px 0px;
+}
+
+.header-button {
+    float: left;
+    margin: 15px 15px 0px 0px ;
+    background-color: #5bc0de;
+    color: white;
+}
+
+.logout-button {
+    float: right;
+    margin: 15px 15px 0px 0px;
+}
