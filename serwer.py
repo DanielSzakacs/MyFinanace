@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session, jsonify
+from flask import Flask, render_template, request, session, jsonify, url_for, redirect
 app = Flask (__name__)
 import database_queri
 import hashing
@@ -42,7 +42,7 @@ def login():
 def logout():
     del session["log_in"]
     del session["username"]
-    return render_template("login_registration_page.html")
+    return redirect(url_for('main_page'))
 
 
 @app.route('/account')
@@ -64,10 +64,20 @@ def calculate():
     house = int(request.form['house'])
     food = int(request.form['food'])
     cloth = int(request.form['cloth'])
-    something = int(request.form['something'])
+    everything_else = int(request.form['something'])
     year = int(request.form['year'])
-    saving = ((income - (cloth + house + food + something)) * 12) * ((2018 - year) * 12)
+    saving = ((income - (cloth + house + food + everything_else)) * 12) * ((2018 - year) * 12)
+    user_id = database_queri.get_user_id(session['username'])
+    database_queri.delete_finance_row(user_id['id'])
+    database_queri.save_finance_data(user_id['id'], house, food, cloth, everything_else, income)
     return render_template('finance.html', currency=currency, year=year, saving=saving)
+
+
+@app.route('/graph')
+def graph():
+    user_id = database_queri.get_user_id(session['username'])
+    graph_data = database_queri.graph_data(user_id['id'])
+    return render_template('grafic.html', data=graph_data[0])
 
 
 if __name__ == "__main__":

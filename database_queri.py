@@ -25,6 +25,7 @@ def get_password(cursor, username):
                         """, {'username': username})
     return cursor.fetchone()
 
+
 @database_common.connection_handler
 def account_get_registration_time(cursor, username):
     cursor.execute("""SELECT registration_time
@@ -32,3 +33,35 @@ def account_get_registration_time(cursor, username):
                         WHERE username = %(username)s;
                         """, {'username':username})
     return cursor.fetchone()
+
+
+@database_common.connection_handler
+def save_finance_data(cursor, user_id, house, food, cloth, everything_else, income):
+    cursor.execute(""" INSERT INTO  financedata  (user_id, house, food, cloth, everything_else, income)
+                       VALUES (%(user_id)s, %(house)s, %(food)s, %(cloth)s, %(everything_else)s, %(income)s);
+                       """, {'user_id': user_id, 'house': house, 'food': food, 'cloth': cloth, 'everything_else': everything_else, 'income': income })
+
+
+@database_common.connection_handler
+def get_user_id(cursor, username):
+    cursor.execute("""SELECT id
+                    FROM users  
+                    WHERE username = %(username)s;
+                    """, {'username': username})
+    return cursor.fetchone()
+
+
+@database_common.connection_handler
+def delete_finance_row(cursor, id):
+    cursor.execute("""DELETE 
+                      FROM financedata
+                      WHERE user_id = %(id)s; 
+                      """,{'id': id})
+
+@database_common.connection_handler
+def graph_data(cursor, id):
+    cursor.execute("""SELECT house, food, cloth, everything_else, income 
+                      FROM financedata 
+                      WHERE user_id = %(id)s; 
+                      """, {'id': id})
+    return cursor.fetchall()
