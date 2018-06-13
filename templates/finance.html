@@ -6,19 +6,42 @@
     <!-- Ide kell tenni a tablakat -->
     <p class="text-center">Finance</p>
     <div class="row input-group ">
-        <form method="post" action="calculate_finance">
-            <input name="income" class="info-input form-control rounded" type="text" placeholder="Income/month">
-            <input name="house" class="info-input form-control rounded" type="text" placeholder="House">
-            <input name="food" class="info-input form-control rounded" type="text" placeholder="Food">
-            <input name="cloth" type="text" class="info-input form-control" placeholder="Cloth">
-            <input name="somthing" type="text" class="info-input form-control" placeholder="Somthing more">
-            <select name="year" class="info-input form-control">
-                {% for year in range(2018, 2100)%}
-                <option value="">{{ year }}</option>
+        <form method="post" action="calculate">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <select id="currency" name="currency" class="info-input form-control">
+                        <option selected>€</option>
+                        <option>$</option>
+                        <option>£</option>
+                        <option>₽</option>
+                        <option>Ft</option>
+                    </select>
+                </div>
+                <input id="income" name="income" class="info-input form-control rounded" type="number" placeholder="Income/month" required="required">
+            </div>
+            <input name="house" class="info-input form-control rounded" type="number" placeholder="House" required="required">
+            <input name="food" class="info-input form-control rounded" type="number" placeholder="Food" required="required">
+            <input  name="cloth" type="number" class="info-input form-control" placeholder="Cloth" required="required">
+            <input  name="something" type="number" class="info-input form-control" placeholder="Something more" required="required">
+            <select id="year" name="year" class="info-input form-control">
+                {% for year in range(2019, 2101) %}
+                <option>{{ year }}</option>
                 {% endfor %}
             </select>
-            <button class="calculate-button btn btn-primary">Submit</button>
+            <button type="submit" class="calculate-button btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Submit</button>
         </form>
     </div>
+</div>
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content text-center">
+      <div class="modal-header">
+          <h4>Your savings whould be for {{ year }}</h4>
+      </div>
+        <div class="modal-body">
+            <h3>{{ saving }} {{ currency }}</h3>
+        </div>
+    </div>
+  </div>
 </div>
 {% endblock %}
