@@ -31,15 +31,15 @@ def account_get_registration_time(cursor, username):
     cursor.execute("""SELECT registration_time
                         FROM users
                         WHERE username = %(username)s;
-                        """, {'username':username})
+                        """, {'username': username})
     return cursor.fetchone()
 
 
 @database_common.connection_handler
-def save_finance_data(cursor, user_id, house, food, cloth, everything_else, income):
+def save_finance_data(cursor, user_id, house, food, cloth, everything_else, saving_month):
     cursor.execute(""" INSERT INTO  financedata  (user_id, house, food, cloth, everything_else, income)
                        VALUES (%(user_id)s, %(house)s, %(food)s, %(cloth)s, %(everything_else)s, %(income)s);
-                       """, {'user_id': user_id, 'house': house, 'food': food, 'cloth': cloth, 'everything_else': everything_else, 'income': income })
+                       """, {'user_id': user_id, 'house': house, 'food': food, 'cloth': cloth, 'everything_else': everything_else, 'income': saving_month })
 
 
 @database_common.connection_handler
