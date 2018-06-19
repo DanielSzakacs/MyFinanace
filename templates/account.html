@@ -1,12 +1,16 @@
 {% extends 'layout.html' %}
 {% block content %}
-<div class="info-table border border-info rounded input-center">
+<div class="info-table border rounded input-center">
     <p>
         <img class="account-user-pic rounded-circle text-center" src="{{ url_for('static', filename='logo/no-user-face.jpg')}}" alt="User face">
         <br>
         <h6 class="text-center">Username: {{ session['username'] }}</h6><br>
         <h6> Registration time: {{ time }}</h6>
-        <h6> Country: Hungary</h6>
+        <h6>Current country:</h6>
+    <hr>
+            <p id="current-place"></p>
+            <p id="city-name"></p>
+    <hr>
         <h6> Email: </h6>
 
     </p>

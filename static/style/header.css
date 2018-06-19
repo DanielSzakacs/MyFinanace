@@ -23,9 +23,9 @@
 
 .info-table {
     margin: 30px 300px 30px 300px;
-    -webkit-box-shadow: 14px 0px 11px -10px rgba(0,0,0,0.75);
-    -moz-box-shadow: 14px 0px 11px -10px rgba(0,0,0,0.75);
-    box-shadow: 14px 0px 11px -10px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 10px 10px 34px -1px rgba(0,0,0,0.24);
+    -moz-box-shadow: 10px 10px 34px -1px rgba(0,0,0,0.24);
+    box-shadow: 10px 10px 34px -1px rgba(0,0,0,0.24);
 }
 
 .info-input {
@@ -50,4 +50,8 @@
   display: inline-block;
   width: 1.33333333em;
   line-height: 1em;
+}
+
+#finanace-popup-tabel {
+    margin: 100px
 }

@@ -1,21 +1,21 @@
 {% extends 'layout.html' %}
 {% block content %}
 
-<h3 class="app-name"><p class="text-center">MyFinance</p></h3>
-<div class="registration-box">
+<h3 class="app-name"><p class="text-center">MyFinanceGuy</p></h3>
+<div class="registration-box rounded">
     <br>
     <form  method="post" action="registration" class="text-center">
         <p class="small grayed">Registration</p>
         <input type="text" name="username" placeholder="Please use your email">
         <input type="password" name="userPassword" placeholder="Your code" value=" ">
-        <button class="btn btn-danger" type="submit">Submit</button>
+        <button id="registration-button" class="user-reg-log-button btn btn-danger" type="submit">Registration</button>
     </form>
     <br><br>
     <form method="post" action="login" class="text-center">
         <p class="small grayed">Login</p>
         <input type="text" name="username">
         <input type="password" name="password">
-        <button class="btn btn-danger" type="submit">Submit</button>
+        <button class="user-reg-log-button btn btn-danger" type="submit">Login</button>
     </form>
 </div>
 <div class="modal fade language-table" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">

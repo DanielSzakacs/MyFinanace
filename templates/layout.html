@@ -9,15 +9,14 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style/registration.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style/header.css') }}">
     <script src="{{ url_for('static', filename='events/main_page_event.js') }}" defer></script>
-
 </head>
-<body>
+<body class="body-for-background">
 {% if session['username'] %}
     <div id="header-wrapper">
         <header class="clearfix">
             <img id="logo" src="{{url_for('static', filename='logo/mfg-logo.png') }}" alt="Myfinance">
             <a href="{{ url_for('account')}}">
-                <button class="header-button btn" >Account</button>
+                <button id="account-button" class="header-button btn" >Account</button>
             </a>
             <a href="{{url_for('finance')}}">
                 <button class="header-button btn" >Finance</button>
@@ -29,7 +28,7 @@
                 <button id="exchange-button" class="header-button btn" >Exchange</button>
             </a>
             <a href="{{ url_for('logout')}}">
-                <button class="logout-button btn btn-danger" >Logout</button>
+                <button class="user-reg-log-button logout-button btn btn-danger" >Logout</button>
             </a>
         </header>
     </div>
